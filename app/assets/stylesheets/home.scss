@@ -1,3 +1,19 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#recruit{
+    display: inline;
+    position: absolute;
+    bottom: 0;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+#myTab{
+    margin: 0px;
+}
+
+.clearfix{
+    padding: 10px;
+    position: relative;
+}
