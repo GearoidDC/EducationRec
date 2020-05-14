@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :skills
+  resources :candidates
   root "home#index"
   
   resources :users

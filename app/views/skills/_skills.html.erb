@@ -1,23 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<table class="table">
-<thead>
+<h1>Skills</h1>
+
+<table>
+  <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Added at</th>
-      <th scope="col">Description</th>
-      <th scope="col">Candidate</th>
+      <th>Name</th>
+      <th>Created at</th>
+      <th>Description</th>
+      <th>Candidate</th>
+      <th colspan="3"></th>
     </tr>
   </thead>
+
   <tbody>
     <% @skills.each do |skill| %>
       <tr>
-        <td><%= skill.id %></td>
         <td><%= skill.name %></td>
         <td><%= skill.created_at %></td>
         <td><%= skill.description %></td>
-        <td><%= skill.candidate.name %></td>
+        <td><%= skill.candidate %></td>
         <td><%= link_to 'Show', skill %></td>
         <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
         <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
