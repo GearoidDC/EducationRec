@@ -31,8 +31,10 @@ class CandidatesController < ApplicationController
 
     respond_to do |format|
       if @candidate.save
-        format.html { redirect_to @candidate, notice: 'Candidate was successfully created.' }
+        flash[:notice] = 'Candidate was successfully created.'
+        format.html { redirect_to @candidate }
         format.json { render :show, status: :created, location: @candidate }
+        format.js { render js: 'window.top.location.reload(true);' }
       else
         format.html { render :new }
         format.json { render json: @candidate.errors, status: :unprocessable_entity }

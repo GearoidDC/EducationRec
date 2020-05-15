@@ -1,2 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.div-centered {
+  text-align: left; 
+  margin: auto; 
+  width: 240px;
+}

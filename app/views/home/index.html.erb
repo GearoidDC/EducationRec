@@ -1,4 +1,16 @@
-
+<script>
+$(document).ready(function() {
+    if (location.hash) {
+        $("a[href='" + location.hash + "']").tab("show");
+    }
+    $(document.body).on("click", "a[data-toggle='tab']", function(event) {
+        location.hash = this.getAttribute("href");
+    });
+});
+$(window).on("popstate", function() {
+    var anchor = location.hash || $("a[data-toggle='tab']").first().attr("href");
+    $("a[href='" + anchor + "']").tab("show");
+});</script>
 
 <div class="container" style="border:1px solid #cecece;">
   <div class="clearfix">
@@ -10,38 +22,32 @@
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" id="myTab" role="tablist" >
-  <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Login</a>
+  <li class="nav-item active">
+    <a class="nav-link" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Candidate</a>
+    <a class="nav-link" id="candidates-tab" data-toggle="tab" href="#candidates" role="tab" aria-controls="candidates" aria-selected="false">Candidates</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Skills</a>
+    <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="false">Skills</a>
   </li>
 </ul>
-
 <!-- Tab panes -->
 <div class="tab-content" >
-  <div class="tab-pane active text-center" id="home" role="tabpanel" aria-labelledby="home-tab">
+  <div class="tab-pane active text-center" id="login" role="tabpanel" aria-labelledby="login-tab">
     
-    <% if current_user %>
-      Logged in as <%= current_user.email %>
-      <%= link_to "Log Out", logout_path %>
-      <% else %>
-      <%= render "sessions/new" %>
-  <%= link_to "Sign Up", signup_path %>
-<% end %>
-<p id="notice"><%= notice %></p>
+    <%= render "loginTab" %>
     
   </div>
 
-  <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+  <div class="tab-pane" id="candidates" role="tabpanel" aria-labelledby="candidates-tab">
     <%= render "candidateTab" %>
   </div>
   
-  <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+  <div class="tab-pane" id="skills" role="tabpanel" aria-labelledby="skills-tab">
     <%= render "skillsTab" %>  
   </div>
 </div>
 </div>
+                
+                

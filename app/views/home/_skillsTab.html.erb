@@ -1,5 +1,6 @@
-<p id="notice"><%= notice %></p>
 
+<p id="notice"><%= notice %></p>
+<% if current_user %>
 <table class="table">
 <thead>
     <tr>
@@ -15,7 +16,7 @@
       <tr>
         <td><%= skill.id %></td>
         <td><%= skill.name %></td>
-        <td><%= skill.created_at %></td>
+        <td><%= skill.created_at.to_date %></td>
         <td><%= skill.description %></td>
         <td><%= skill.candidate.name %></td>
         <td><%= link_to 'Show', skill %></td>
@@ -28,4 +29,24 @@
 
 <br>
 
-<%= link_to 'New Skill', new_skill_path %>
+<button class="btn btn-md btn-primary" type="button" data-toggle="modal" data-target="#myModal1">Add to new</button>
+
+<div id="myModal1" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                    <div class="modal-content text-center">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add new Skill</h4>
+                      </div>
+                      <div class="modal-body div-centered">
+                        <%= render 'skills/form', skill: @skill %>
+                      </div>
+                      <div class="modal-footer">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+<% else %>
+<p> You must login to view Skills </p>
+<% end %>
