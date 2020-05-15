@@ -34,8 +34,8 @@ class SkillsController < ApplicationController
         format.json { render :show, status: :created, location: @skill }
         format.js { render js: 'window.top.location.reload(true);' }
       else
-        format.html { render :new }
-        format.json { render json: @skill.errors, status: :unprocessable_entity }
+        format.js { render layout: false, content_type: 'text/javascript' }
+        format.html
       end
     end
   end

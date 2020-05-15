@@ -33,9 +33,10 @@ class UsersController < ApplicationController
         format.json { render :show, status: :created, location: @user }
         format.js { render js: 'window.top.location.reload(true);' }
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-        format.js   { render layout: false, content_type: 'text/javascript' }
+        format.js { render layout: false, content_type: 'text/javascript' }
+        format.html
+        #format.html { render :new }
+        #format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
