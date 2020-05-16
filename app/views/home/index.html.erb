@@ -29,7 +29,7 @@ $(window).on("popstate", function() {
     <a class="nav-link" id="candidates-tab" data-toggle="tab" href="#candidates" role="tab" aria-controls="candidates" aria-selected="false">Candidates</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="false">Skills</a>
+    <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skillstab1" role="tab" aria-controls="skills" aria-selected="false">Skills</a>
   </li>
 </ul>
 <!-- Tab panes -->
@@ -44,8 +44,11 @@ $(window).on("popstate", function() {
     <%= render "candidateTab" %>
   </div>
   
-  <div class="tab-pane" id="skills" role="tabpanel" aria-labelledby="skills-tab">
-    <%= render "skillsTab" %>  
+  <div class="tab-pane" id="skillstab1" role="tabpanel" aria-labelledby="skills-tab">
+  <div id = "renskills">
+    <%= render "skillsTab" %> 
+  </div>
+     
   </div>
 </div>
 </div>

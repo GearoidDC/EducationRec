@@ -10,6 +10,7 @@ class SkillsController < ApplicationController
   # GET /skills/1
   # GET /skills/1.json
   def show
+    
   end
 
   # GET /skills/new
@@ -24,15 +25,17 @@ class SkillsController < ApplicationController
   # POST /skills
   # POST /skills.json
   def create
+    @skills = Skill.all
     @skill = Skill.new(skill_params)
     @candidates = Candidate.all
+    @current_skill = @skill
 
     respond_to do |format|
       if @skill.save
         flash[:notice] = 'Skill was successfully created.'
-        format.html { redirect_to @skill}
+        format.html { redirect_to root}
+        format.js { @current_skill }
         format.json { render :show, status: :created, location: @skill }
-        format.js { render js: 'window.top.location.reload(true);' }
       else
         format.js { render layout: false, content_type: 'text/javascript' }
         format.html
@@ -59,8 +62,9 @@ class SkillsController < ApplicationController
   def destroy
     @skill.destroy
     respond_to do |format|
-      format.html { redirect_to skills_url, notice: 'Skill was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Skill was successfully destroyed.' }
       format.json { head :no_content }
+      format.js { render js: 'window.top.location.reload(true);' }
     end
   end
 

@@ -13,7 +13,11 @@
   </thead>
   <tbody>
     <% @skills.each do |skill| %>
-      <tr>
+    <% if @current_skill == skill %>
+      <tr class="line-item-highlight">
+    <% else %>
+    <tr>
+    <% end %>
         <td><%= skill.id %></td>
         <td><%= skill.name %></td>
         <td><%= skill.created_at.to_date %></td>
@@ -21,7 +25,7 @@
         <td><%= skill.candidate.name %></td>
         <td><%= link_to 'Show', skill %></td>
         <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } ,remote: true %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,6 +44,7 @@
                       </div>
                       <div id = "skillerrors"></div>
                       <div class="modal-body div-centered">
+                       
                         <%= render 'skills/form', skill: @skill %>
                       </div>
                       <div class="modal-footer">
