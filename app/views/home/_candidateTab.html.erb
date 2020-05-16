@@ -1,5 +1,4 @@
 <% if current_user %>
-<p id="notice"><%= notice %></p>
 <table class="table">
 <thead>
     <tr>
@@ -16,14 +15,14 @@
         <td><%= candidate.name %></td>
         <td><%= candidate.phone_number %></td>
         <td><%= candidate.email %></td>
-        <td><%= link_to 'Show', candidate %></td>
+        <td><%= link_to 'Show', candidate, remote: true %></td>
         <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
-        <td><%= link_to 'Destroy', candidate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', candidate, method: :delete, data: { confirm: 'Are you sure?' },remote: true %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<div id ="candidatemodals"></div>
 <br>
 
 <button class="btn btn-md btn-primary" type="button" data-toggle="modal" data-target="#myModal">Add Candidate</button>

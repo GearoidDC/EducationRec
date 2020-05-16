@@ -22,9 +22,10 @@ ActiveRecord::Schema.define(version: 20200514020519) do
 
   create_table "skills", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",   null: false
+    t.string   "proficiency"
     t.text     "description"
     t.integer  "candidate_id"
+    t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["candidate_id"], name: "index_skills_on_candidate_id"
   end

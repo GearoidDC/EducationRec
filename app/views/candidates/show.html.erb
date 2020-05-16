@@ -15,7 +15,7 @@
   <%= @candidate.email %>
 </p>
 
-<%= render partial: 'skills/skills', collection: @candidate.skills %>
+<%= render partial: 'skills/skills', @skills: @candidate.skills %>
 
 <%= link_to 'Edit', edit_candidate_path(@candidate) %> |
 <%= link_to 'Back', candidates_path %>

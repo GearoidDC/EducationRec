@@ -1,0 +1,41 @@
+<div id="myModalskilldshow" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                    <div class="modal-content text-center">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Show Skill <%= @skill.id %> details </h4>
+                      </div>
+                      <div id = "skillerrors"></div>
+                      <div class="modal-body div-centered">
+                        
+                        
+<p>
+  <strong>Name:</strong>
+  <%= @skill.name %>
+</p>
+
+<p>
+  <strong>Proficiency:</strong>
+  <%= @skill.proficiency %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @skill.created_at %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @skill.description %>
+</p>
+
+<p>
+  <strong>Candidate:</strong>
+  <%= @skill.candidate.name %>
+</p>
+
+                      <div class="modal-footer">
+                      </div>
+                    </div>
+                  </div>
+                </div>

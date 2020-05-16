@@ -1,12 +1,11 @@
 
-<p id="notice"><%= notice %></p>
 <% if current_user %>
 <table class="table">
 <thead>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Name</th>
-      <th scope="col">Added at</th>
+      <th scope="col">Proficiency</th>
       <th scope="col">Description</th>
       <th scope="col">Candidate</th>
     </tr>
@@ -20,17 +19,17 @@
     <% end %>
         <td><%= skill.id %></td>
         <td><%= skill.name %></td>
-        <td><%= skill.created_at.to_date %></td>
+        <td><%= skill.proficiency %></td>
         <td><%= skill.description %></td>
         <td><%= skill.candidate.name %></td>
-        <td><%= link_to 'Show', skill %></td>
-        <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+        <td><%= link_to 'Show', skill, remote: true %></td>
+        <td><%= link_to 'Edit', edit_skill_path(skill), remote: true %></td>
         <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } ,remote: true %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<div id ="testskill"></div>
 <br>
 
 <button class="btn btn-md btn-primary" type="button" data-toggle="modal" data-target="#myModal1">Add to new</button>
