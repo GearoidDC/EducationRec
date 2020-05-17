@@ -1,33 +1,40 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  before_action :set_skills, only: [:index, :create, :update]
 
   # GET /skills
   # GET /skills.json
   def index
-    @skills = Skill.all
+    redirect_to root_path
   end
 
   # GET /skills/1
   # GET /skills/1.json
   def show
-    
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.js
+    end
   end
 
   # GET /skills/new
   def new
     @skill = Skill.new
+    redirect_to root_path
   end
 
   # GET /skills/1/edit
   def edit
     @candidates = Candidate.all
-
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.js
+    end
   end
 
   # POST /skills
   # POST /skills.json
   def create
-    @skills = Skill.all
     @skill = Skill.new(skill_params)
     @candidates = Candidate.all
     @current_skill = @skill
@@ -77,6 +84,11 @@ class SkillsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_skill
       @skill = Skill.find(params[:id])
+    end
+    
+    # Sets a local variable for all skills
+    def set_skills
+      @skills = Skill.all
     end
 
     # Only allow a list of trusted parameters through.

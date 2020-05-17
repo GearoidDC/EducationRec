@@ -14,7 +14,14 @@
 }
 
 .clearfix{
-    padding: 10px;
+    padding: 20px;
     position: relative;
 }
-
+#logout{
+    display: inline;
+    position: absolute;
+    font-size: 15px;
+    margin-left: 75%;
+    padding-top: 20px;
+    z-index: 4;
+}

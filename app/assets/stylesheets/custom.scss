@@ -2,9 +2,9 @@
 @import "bootstrap";
 
 .div-centered {
-  text-align: left; 
+  text-align: centered; 
   margin: auto; 
-  width: 240px;
+  width: 400px;
 }
 
 #userplace {
@@ -12,6 +12,30 @@
  text-align: left; 
 }
 
+#userindex{
+	margin-left: 35%;
+}
+
+#maintable{
+	padding-bottom: 20px;
+	word-wrap: break-word;
+}
+
+#candidateerrors{
+	padding-left: 12%;
+	text-align:left;
+}
+
+
+#skillerrors{
+	padding-left: 12%;
+	text-align:left;
+}
+
+#usererrors{
+	padding-left: 12%;
+	text-align:left;
+}
 @keyframes line-item-highlight {
 	  0% {
 	    background: #8f8;

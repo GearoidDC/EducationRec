@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -35,8 +36,6 @@ class UsersController < ApplicationController
       else
         format.js { render layout: false, content_type: 'text/javascript' }
         format.html
-        #format.html { render :new }
-        #format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -74,5 +73,12 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation)
+    end
+    
+    def logged_in_user
+      unless current_user
+        flash[:alert] = "Please log in."
+        redirect_to root_url
+      end
     end
 end

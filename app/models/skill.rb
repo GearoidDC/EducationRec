@@ -1,5 +1,9 @@
 class Skill < ApplicationRecord
-  belongs_to :candidate
+  
+  belongs_to :candidate, required: false
+  
+  validates :proficiency, presence: true
   validates :name , presence: true, length: { maximum: 50 }
-  validates :description , presence: true, length: { maximum: 500 }
+  validates :description , presence: true, length: { maximum: 50 }
+  
 end

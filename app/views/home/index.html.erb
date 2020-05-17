@@ -1,21 +1,11 @@
-<script>
-$(document).ready(function() {
-    if (location.hash) {
-        $("a[href='" + location.hash + "']").tab("show");
-    }
-    $(document.body).on("click", "a[data-toggle='tab']", function(event) {
-        location.hash = this.getAttribute("href");
-    });
-});
-$(window).on("popstate", function() {
-    var anchor = location.hash || $("a[data-toggle='tab']").first().attr("href");
-    $("a[href='" + anchor + "']").tab("show");
-});</script>
-
+<% if current_user %>
+<div id = "logout"> <%= link_to "Log Out", logout_path %> </div>
+<% end %>
 <div class="container" style="border:1px solid #cecece;">
   <div class="clearfix">
     <%= image_tag("book.png",class:"float-left", :alt => "book icon") %>
-      <h1 id ="recruit"> Recruit - Educators</h1>
+      <h1 id ="recruit"> Recruit - Educators </h1> 
+      
 </div>
 
 
@@ -33,15 +23,15 @@ $(window).on("popstate", function() {
   </li>
 </ul>
 <!-- Tab panes -->
-<div class="tab-content" >
+<div class="tab-content" id = "maintable" >
   <div class="tab-pane active text-center" id="login" role="tabpanel" aria-labelledby="login-tab">
-    
     <%= render "loginTab" %>
-    
   </div>
 
   <div class="tab-pane" id="candidates" role="tabpanel" aria-labelledby="candidates-tab">
+    <div id = "rencandidates">
     <%= render "candidateTab" %>
+    </div>
   </div>
   
   <div class="tab-pane" id="skillstab1" role="tabpanel" aria-labelledby="skills-tab">

@@ -1,27 +1,35 @@
 class CandidatesController < ApplicationController
   before_action :set_candidate, only: [:show, :edit, :update, :destroy]
+  before_action :set_candidates, only: [:index, :create, :update]
 
   # GET /candidates
   # GET /candidates.json
   def index
-    @candidates = Candidate.all
-
+    redirect_to root_path
   end
 
   # GET /candidates/1
   # GET /candidates/1.json
   def show
     @skills = @candidate.skills
-    
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.js
+    end
   end
 
   # GET /candidates/new
   def new
     @candidate = Candidate.new
+    redirect_to root_path
   end
 
   # GET /candidates/1/edit
   def edit
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.js
+    end
   end
 
   # POST /candidates
@@ -31,12 +39,12 @@ class CandidatesController < ApplicationController
 
     respond_to do |format|
       if @candidate.save
-        format.html { redirect_to @candidate }
+        format.html { redirect_to root_url }
+        format.js
         format.json { render :show, status: :created, location: @candidate }
-        format.js { render js: 'window.top.location.reload(true);' }
       else
-        format.html { render :new }
-        format.json { render json: @candidate.errors, status: :unprocessable_entity }
+        format.js { render layout: false, content_type: 'text/javascript' }
+        format.html
       end
     end
   end
@@ -46,11 +54,13 @@ class CandidatesController < ApplicationController
   def update
     respond_to do |format|
       if @candidate.update(candidate_params)
-        format.html { redirect_to @candidate }
+        format.html { redirect_to root_url}
+        format.js
         format.json { render :show, status: :ok, location: @candidate }
+        
       else
-        format.html { render :edit }
-        format.json { render json: @candidate.errors, status: :unprocessable_entity }
+        format.js { render layout: false, content_type: 'text/javascript' }
+        format.html
       end
     end
   end
@@ -60,7 +70,7 @@ class CandidatesController < ApplicationController
   def destroy
     @candidate.destroy
     respond_to do |format|
-      format.html { redirect_to candidates_url }
+      format.html { redirect_to root_url }
       format.json { head :no_content }
       format.js { render js: 'window.top.location.reload(true);' }
     end
@@ -70,6 +80,11 @@ class CandidatesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_candidate
       @candidate = Candidate.find(params[:id])
+    end
+    
+    # Sets a local variable for all candidates
+    def set_candidates
+      @candidates = Candidate.all
     end
 
     # Only allow a list of trusted parameters through.
