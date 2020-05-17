@@ -1,46 +1,44 @@
 <% if current_user %>
-<div id = "logout"> <%= link_to "Log Out", logout_path %> </div>
+  <div id = "logout"> <%= link_to "Log Out", logout_path %> </div>
 <% end %>
 <div class="container" style="border:1px solid #cecece;">
   <div class="clearfix">
     <%= image_tag("book.png",class:"float-left", :alt => "book icon") %>
-      <h1 id ="recruit"> Recruit - Educators </h1> 
-      
-</div>
-
-
-
-<!-- Nav tabs -->
-<ul class="nav nav-tabs" id="myTab" role="tablist" >
-  <li class="nav-item active">
-    <a class="nav-link" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="candidates-tab" data-toggle="tab" href="#candidates" role="tab" aria-controls="candidates" aria-selected="false">Candidates</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skillstab1" role="tab" aria-controls="skills" aria-selected="false">Skills</a>
-  </li>
-</ul>
-<!-- Tab panes -->
-<div class="tab-content" id = "maintable" >
-  <div class="tab-pane active text-center" id="login" role="tabpanel" aria-labelledby="login-tab">
-    <%= render "loginTab" %>
+    <h1 id ="recruit"> Recruit - Educators </h1> 
   </div>
 
-  <div class="tab-pane" id="candidates" role="tabpanel" aria-labelledby="candidates-tab">
-    <div id = "rencandidates">
-    <%= render "candidateTab" %>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" id="myTab" role="tablist" >
+    <li class="nav-item active">
+      <a class="nav-link" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="candidates-tab" data-toggle="tab" href="#candidates" role="tab" aria-controls="candidates" aria-selected="false">Candidates</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skillstab1" role="tab" aria-controls="skills" aria-selected="false">Skills</a>
+    </li>
+  </ul>
+  
+  <!-- Tab panes -->
+  <div class="tab-content" id = "maintable" >
+    <div class="tab-pane active text-center" id="login" role="tabpanel" aria-labelledby="login-tab">
+      <%= render "loginTab" %>
+    </div>
+  
+    <div class="tab-pane" id="candidates" role="tabpanel" aria-labelledby="candidates-tab">
+      <div id = "rencandidates">
+      <%= render "candidateTab" %>
+      </div>
+    </div>
+    
+    <div class="tab-pane" id="skillstab1" role="tabpanel" aria-labelledby="skills-tab">
+    <div id = "renskills">
+      <%= render "skillsTab" %> 
+    </div>
+       
     </div>
   </div>
-  
-  <div class="tab-pane" id="skillstab1" role="tabpanel" aria-labelledby="skills-tab">
-  <div id = "renskills">
-    <%= render "skillsTab" %> 
-  </div>
-     
-  </div>
-</div>
 </div>
                 
                 

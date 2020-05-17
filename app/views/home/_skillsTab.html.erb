@@ -1,57 +1,56 @@
 
 <% if current_user %>
-<table class="table">
-<thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Proficiency</th>
-      <th scope="col">Description</th>
-      <th scope="col">Candidate</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @skills.each do |skill| %>
-    <% if @current_skill == skill %>
-      <tr class="line-item-highlight">
-    <% else %>
-    <tr>
-    <% end %>
-        <td><%= skill.id %></td>
-        <td><%= skill.name %></td>
-        <td><%= skill.proficiency %></td>
-        <td><%= skill.description %></td>
-        <td><%= skill.candidate.name %></td>
-        <td><%= link_to 'Show', skill, remote: true %></td>
-        <td><%= link_to 'Edit', edit_skill_path(skill), remote: true %></td>
-        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } ,remote: true %></td>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Proficiency</th>
+        <th scope="col">Description</th>
+        <th scope="col">Candidate</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<div id ="testskill"></div>
-<br>
-
-<button class="btn btn-md btn-primary" type="button" data-toggle="modal" data-target="#myModal1">Add Skill</button>
-
-<div id="myModal1" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
-                    <div class="modal-content text-center">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Add Skill</h4>
-                      </div>
-                      <div id = "skillerrors"></div>
-                      <div class="modal-body div-centered">
-                       
-                        <%= render 'skills/form', skill: Skill.new %>
-                      </div>
-                      <div class="modal-footer">
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    </thead>
+    <tbody>
+      <% @skills.each do |skill| %>
+        <% if @current_skill == skill %>
+          <tr class="line-item-highlight">
+        <% else %>
+          <tr>
+        <% end %>
+            <td><%= skill.id %></td>
+            <td><%= skill.name %></td>
+            <td><%= skill.proficiency %></td>
+            <td><%= skill.description %></td>
+            <td><%= skill.candidate.name %></td>
+            <td><%= link_to 'Show', skill, remote: true %></td>
+            <td><%= link_to 'Edit', edit_skill_path(skill), remote: true %></td>
+            <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } ,remote: true %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <div id ="skillmodals"></div>
+  
+  <button class="btn btn-md btn-primary" type="button" data-toggle="modal" data-target="#myModal1">Add Skill</button>
+  
+  <div id="myModal1" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content text-center">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Skill</h4>
+        </div>
+        <div id = "skillerrors"></div>
+        <div class="modal-body div-centered">
+          <%= render 'skills/form', skill: Skill.new %>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
                 
 <% else %>
-<p> You must login to view Skills </p>
+  <p> You must login to view Skills </p>
 <% end %>

@@ -1,37 +1,29 @@
 
 <div>
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 </div>
+
 <% if current_user %>
-    <br>
-    <br>
-    <br>
-      <b>Logged in as <%= current_user.email %></b>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <%= link_to "View User list", userindex_path %>
-      <% else %>
-      
-      <%= render "sessions/new" %>
+  <p><b>Logged in as <%= current_user.email %></b></p>
+  <%= link_to "View User list", userindex_path %>
   
-<div id="myModal2" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
-                    <div class="modal-content text-center">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Enter Details</h4>
-                      </div>
-                      <div id = "usererrors"></div>
-                      <div class="modal-body div-centered">
-                        <%= render 'users/form', user: @user  %>
-                      </div>
-                      <div class="modal-footer">
-                      </div>
-                    </div>
-                  </div>
-                </div>
+<% else %>
+  <%= render "sessions/new" %>
+  <div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content text-center">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Enter Details</h4>
+        </div>
+        <div id = "usererrors"></div>
+        <div class="modal-body div-centered">
+          <%= render 'users/form', user: @user  %>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  
 <% end %>
