@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    redirect_to root_path
   end
 
   # GET /users/1/edit
@@ -50,6 +51,7 @@ class UsersController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -57,6 +59,9 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    if (current_user == @user)
+      session[:user_id] = nil
+    end
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }

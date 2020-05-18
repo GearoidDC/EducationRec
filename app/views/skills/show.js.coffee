@@ -1,2 +1,2 @@
-$("#skillmodals").html("<%= escape_javascript(render "skills/skill_modal_show", skill: @skill) %>");
+$("#skillmodals").html("<%= escape_javascript(render "skills/show", skill: @skill) %>");
 $("#myModalskilldshow").modal('show');

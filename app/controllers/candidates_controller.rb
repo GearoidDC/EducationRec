@@ -1,4 +1,5 @@
 class CandidatesController < ApplicationController
+  before_action :logged_in_user
   before_action :set_candidate, only: [:show, :edit, :update, :destroy]
   before_action :set_candidates, only: [:index, :create, :update]
 
@@ -90,5 +91,12 @@ class CandidatesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def candidate_params
       params.require(:candidate).permit(:name, :phone_number, :email)
+    end
+    
+    def logged_in_user
+      unless current_user
+        flash[:alert] = "Please log in."
+        redirect_to root_url
+      end
     end
 end
