@@ -1,3 +1,4 @@
+/* Worked from an example on Stack Overflow */
 
 $(document).ready(function() {
     if (location.hash) {

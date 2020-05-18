@@ -1,24 +1,14 @@
-# README
+# EducationRec
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+                    Ruby On Rails 
+             NCI - Server Side Development Project
 
-Things you may want to cover:
+EducationRec is a web app for users to add candidates and skills.
 
-* Ruby version
+Features:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    1. Password hashing 
+    2. Session Cookies
+    3. Full CRUD for Candidates and Skills
+    4. Bootstrap Nav Tabs
+    5. Bootstrap Modals
