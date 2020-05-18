@@ -5,13 +5,11 @@ class SkillsController < ApplicationController
   
 
   # GET /skills
-  # GET /skills.json
   def index
     redirect_to root_path
   end
 
   # GET /skills/1
-  # GET /skills/1.json
   def show
     respond_to do |format|
       format.html { redirect_to root_url }
@@ -35,7 +33,6 @@ class SkillsController < ApplicationController
   end
 
   # POST /skills
-  # POST /skills.json
   def create
     @skill = Skill.new(skill_params)
     @candidates = Candidate.all
@@ -54,7 +51,6 @@ class SkillsController < ApplicationController
   end
 
   # PATCH/PUT /skills/1
-  # PATCH/PUT /skills/1.json
   def update
     @skills = Skill.all
     @candidates = Candidate.all
@@ -72,7 +68,6 @@ class SkillsController < ApplicationController
   end
 
   # DELETE /skills/1
-  # DELETE /skills/1.json
   def destroy
     @skill.destroy
     respond_to do |format|

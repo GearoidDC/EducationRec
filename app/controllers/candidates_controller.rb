@@ -4,13 +4,11 @@ class CandidatesController < ApplicationController
   before_action :set_candidates, only: [:index, :create, :update]
 
   # GET /candidates
-  # GET /candidates.json
   def index
     redirect_to root_path
   end
 
   # GET /candidates/1
-  # GET /candidates/1.json
   def show
     @skills = @candidate.skills
     respond_to do |format|
@@ -34,7 +32,6 @@ class CandidatesController < ApplicationController
   end
 
   # POST /candidates
-  # POST /candidates.json
   def create
     @candidate = Candidate.new(candidate_params)
 
@@ -51,7 +48,6 @@ class CandidatesController < ApplicationController
   end
 
   # PATCH/PUT /candidates/1
-  # PATCH/PUT /candidates/1.json
   def update
     respond_to do |format|
       if @candidate.update(candidate_params)
@@ -67,7 +63,6 @@ class CandidatesController < ApplicationController
   end
 
   # DELETE /candidates/1
-  # DELETE /candidates/1.json
   def destroy
     @candidate.destroy
     respond_to do |format|
