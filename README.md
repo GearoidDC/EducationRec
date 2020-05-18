@@ -1,6 +1,6 @@
 # EducationRec
 
-                    Ruby On Rails 
+                       Ruby On Rails 
              NCI - Server Side Development Project
 
 EducationRec is a web app for users to add candidates and skills.
